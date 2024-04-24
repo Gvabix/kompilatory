@@ -56,7 +56,14 @@
 ```g4
 program: (class_def | function | statement | comment)+ **something in mongolian to end the proram**
 
-statement: 
+statement: statement: assign
+         | for
+         | if
+         | while
+         | return
+         | embedded_func
+         | comment
+         ;
 
 class_def: CLASS_DEF VARIABLE START_CLASS (function | statement | comment)* END_CLASS NEW_LINE
 
