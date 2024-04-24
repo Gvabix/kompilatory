@@ -56,14 +56,7 @@
 ```g4
 program: (class_def | function | statement | comment)+ **something in mongolian to end the proram**
 
-statement: statement: assign
-         | for
-         | if
-         | while
-         | return
-         | embedded_func
-         | comment
-         ;
+statement: statement: assign | for | if | while | return | embedded_func | comment
 
 class_def: CLASS_DEF VARIABLE START_CLASS (function | statement | comment)* END_CLASS NEW_LINE
 
@@ -81,11 +74,11 @@ if: IF OPEN_BRACKET VARIABLE (EQUAL | GREATER_THAN | LESSER_THAN | GREATER_OR_EQ
 
 while: WHILE OPEN_BRACKET variable CLOSE_BRACKET OPEN_LOOP loop_body CLOSE_LOOP
 
-loop_body: (statement | function_call)+ NEW_LINE;
+loop_body: (statement | function_call)+ NEW_LINE
 
-return: RETURN (VARIABLE | NUMBER | STRING) NEW_LINE;
+return: RETURN (VARIABLE | NUMBER | STRING) NEW_LINE
 
-function_call: FUNCT_NAME OPEN_BRACET args? CLOSE_BRACKET NEW_LINE;
+function_call: FUNCT_NAME OPEN_BRACET args? CLOSE_BRACKET NEW_LINE
 
 comment: COMMENT STRING NEW_LINE | START_LONG_COMMENT STRING END_LONG_COMMENT
 ```
