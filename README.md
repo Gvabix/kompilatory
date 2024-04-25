@@ -15,8 +15,8 @@
 - EQUAL: '='
 - NOT_EQUAL: '=/='
 - NEW_LINE: '\n'
-- START_FUNCTION: '{'**start and finish in mongolian**
-- END_FUNCTION: '}'
+- START_FUNCTION: **start and finish in mongolian**
+- END_FUNCTION: 
 - CLASS_DEF:
 - START_CLASS:
 - END_CLASS:
@@ -40,7 +40,7 @@
   - FLOAT:
   - DOUBLE:
   - CHAR:
-  - STR:
+  - STRING:
   - BOOLEAN:
   - LIST:
   - SET:
@@ -50,8 +50,12 @@
 - END_LONG_COMMENT: '<<<'
 - NUMBER: '[0- 9]+ (' .' [0- 9]+)?'
 - VARIABLE: '[a- zA- Z_]+'
-- OPEN_BRACET: '('
+- OPEN_BRACKET: '('
 - CLOSE_BRACKET: ')'
+- OPEN_LIST_BRACKET: '['
+- CLOSE_LIST_BRACKET : ']'
+- DICT_OPEN_BRACKET: '{'
+- DICT_CLOSE_BRACKET: '}'
 ## Grammar:
 ```g4
 program: (class_def | function | statement | comment)+ **something in mongolian to end the proram**
@@ -60,7 +64,7 @@ statement: assign | for | if | while | return | embedded_func | comment
 
 class_def: CLASS_DEF VARIABLE START_CLASS (function | statement | comment)* END_CLASS NEW_LINE
 
-function: FUNCT_NAME VARIABLE OPEN_BRACET args? CLOSE_BRACKET START_FUNCTION function_body END_FUNCTION NEW_LINE
+function: FUNCT_NAME VARIABLE OPEN_BRACKET args? CLOSE_BRACKET START_FUNCTION function_body END_FUNCTION NEW_LINE
 
 args: VAR_TYPE VARIABLE (',' VAR_TYPE VARIABLE)* NEW_LINE
 
@@ -81,6 +85,13 @@ return: RETURN (VARIABLE | NUMBER | STRING) NEW_LINE
 function_call: FUNCT_NAME OPEN_BRACET args? CLOSE_BRACKET NEW_LINE
 
 comment: COMMENT STRING NEW_LINE | START_LONG_COMMENT STRING END_LONG_COMMENT
+
+list: OPEN_LIST_BRACKET 'STRING' | NUMBER (',' 'STRING' | NUMBER)* CLOSE_LIST_BRACKET
+
+table : OPEN_LIST_BRACKET list* CLOSE_LIST_BRACKET
+
+dictionary: DICT_OPEN_BRACKET (' VARIABLE ' : 'STRING' | INT | list)? (, 'VARIABLE' : 'STRING' | INT | list )* DICT_CLOSE_BRACKET
+
 ```
 
 
