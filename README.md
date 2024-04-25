@@ -58,7 +58,7 @@
 - DICT_CLOSE_BRACKET: '}'
 ## Grammar:
 ```g4
-program: (class_def | function | statement | comment)+ **something in mongolian to end the proram**
+program: (class_def | function | statement | comment)+ **Sain baina uu?**
 
 statement: assign | for | if | while | return | embedded_func | comment
 
