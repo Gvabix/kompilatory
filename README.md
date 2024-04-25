@@ -1,8 +1,8 @@
 # MGProgramming
 
 ## Tokens:
-- ASSIGN_VALUE: '<- '(MONGOLIAN 'ASSIGN' OR STH LIKE THAT)
-- PLUS: '+';
+- ASSIGN_VALUE: 'todorhoiloh'
+- PLUS: '+'
 - MINUS: '- '
 - MULTIPLY: '*'
 - DIVIDE: ':'
@@ -15,36 +15,36 @@
 - EQUAL: '='
 - NOT_EQUAL: '=/='
 - NEW_LINE: '\n'
-- START_FUNCTION: **start and finish in mongolian**
-- END_FUNCTION: 
-- CLASS_DEF:
-- START_CLASS:
-- END_CLASS:
-- START_LOOP:
-- END_LOOP:
-- WHILE:
-- CONTINUE:
-- BREAK:
-- FOR:
-- FOR_FROM:
-- FOR_TO:
-- FOR_JUMP:
-- IF:
-- FUNCT_NAME:
-- RETURN:
-- PRINT:
-- INPUT:
+- START_FUNCTION: 'ehleh'
+- END_FUNCTION: 'duusgah'
+- CLASS_DEF: 'angi'
+- START_CLASS: 'ehleh_angi'
+- END_CLASS: 'duusgah_angi'
+- START_LOOP: 'ehleh_davtalt'
+- END_LOOP:'duusgah_davtalt'
+- WHILE: 'zuur'
+- CONTINUE: 'urgeljleh'
+- BREAK: 'zavsar' 
+- FOR: 'd'
+- FOR_FROM: 'aas'
+- FOR_TO: 'tuld'
+- FOR_JUMP: 'nii tuld'
+- IF: 'hervee'
+- FUNCT_NAME: 'ner'
+- RETURN: 'butsah'
+- PRINT: 'hevleh'
+- INPUT: 'orolt'
 - VAR_TYPE:
-  - INT:
-  - LONG:
-  - FLOAT:
-  - DOUBLE:
-  - CHAR:
-  - STRING:
-  - BOOLEAN:
-  - LIST:
-  - SET:
-  - DICT:
+  - INT:'buhel'
+  - LONG:'urt'
+  - FLOAT:'butarhai'
+  - DOUBLE: 'ih_butarhai'
+  - CHAR: 'temdegt'
+  - STRING: 'mor'
+  - BOOLEAN: 'tiim_ugui'
+  - LIST: 'jagsaalt'
+  - SET: 'bagts'
+  - DICT: 'buleg'
 - COMMENT:'>>'
 - START_LONG_COMMENT: '>>>'
 - END_LONG_COMMENT: '<<<'
