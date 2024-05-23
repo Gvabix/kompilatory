@@ -1,97 +1,70 @@
-# MGProgramming
+# MGprogramming
 
-## Tokens:
-- ASSIGN_VALUE: 'todorhoiloh'
-- PLUS: '+'
-- MINUS: '- '
-- MULTIPLY: '*'
-- DIVIDE: ':'
-- POWER: '^'
-- MODULO: '|'
-- GREATER_THAN: '>'
-- LESSER_THAN: '<'
-- GREATER_OR_EQUAL: '>='
-- LESSER_OR_EQUAL: '<='
-- EQUAL: '='
-- NOT_EQUAL: '=/='
-- NEW_LINE: '\n'
-- START_FUNCTION: 'ehleh'
-- END_FUNCTION: 'duusgah'
-- CLASS_DEF: 'angi'
-- START_CLASS: 'ehleh_angi'
-- END_CLASS: 'duusgah_angi'
-- START_LOOP: 'ehleh_davtalt'
-- END_LOOP:'duusgah_davtalt'
-- WHILE: 'zuur'
-- CONTINUE: 'urgeljleh'
-- BREAK: 'zavsar' 
-- FOR: 'd'
-- FOR_FROM: 'aas'
-- FOR_TO: 'tuld'
-- FOR_JUMP: 'nii tuld'
-- IF: 'hervee'
-- FUNCT_NAME: 'ner'
-- RETURN: 'butsah'
-- PRINT: 'hevleh'
-- INPUT: 'orolt'
-- VAR_TYPE:
-  - INT:'buhel'
-  - LONG:'urt'
-  - FLOAT:'butarhai'
-  - DOUBLE: 'ih_butarhai'
-  - CHAR: 'temdegt'
-  - STRING: 'mor'
-  - BOOLEAN: 'tiim_ugui'
-  - LIST: 'jagsaalt'
-  - SET: 'bagts'
-  - DICT: 'buleg'
-- COMMENT:'>>'
-- START_LONG_COMMENT: '>>>'
-- END_LONG_COMMENT: '<<<'
-- NUMBER: '[0- 9]+ (' .' [0- 9]+)?'
-- VARIABLE: '[a- zA- Z_]+'
-- OPEN_BRACKET: '('
-- CLOSE_BRACKET: ')'
-- OPEN_LIST_BRACKET: '['
-- CLOSE_LIST_BRACKET : ']'
-- DICT_OPEN_BRACKET: '{'
-- DICT_CLOSE_BRACKET: '}'
-## Grammar:
-```g4
-program: (class_def | function | statement | comment)+ **Sain baina uu?**
+MGprogramming is a new programming language inspired by Python but designed for Mongolian speakers.
 
-statement: assign | for | if | while | return | embedded_func | comment
+## Prerequisites
 
-class_def: CLASS_DEF VARIABLE START_CLASS (function | statement | comment)* END_CLASS NEW_LINE
+- Python 3.x
+- ANTLR 4.9.2
 
-function: FUNCT_NAME VARIABLE OPEN_BRACKET args? CLOSE_BRACKET START_FUNCTION function_body END_FUNCTION NEW_LINE
+## Getting Started
 
-args: VAR_TYPE VARIABLE (',' VAR_TYPE VARIABLE)* NEW_LINE
+### Setup
 
-function_body: (assign | for | if | while | return | function_call | comment)+
+1. Clone the repository:
 
-assign: VAR_TYPE VARIABLE ASSIGN_VALUE (VARIABLE|DECIMAL_NUMBER) NEW_LINE
+    ```sh
+    git clone <your-repo-url>
+    cd MGprogramming
+    ```
 
-for: FOR VARIABLE FOR_FROM NUMBER FOR_TO NUMBER FOR_JUMP NUMBER OPEN_BRACKET loop_body CLOSE_BRACKET
+2. Install dependencies:
 
-if: IF OPEN_BRACKET VARIABLE (EQUAL | GREATER_THAN | LESSER_THAN | GREATER_OR_EQUAL | SMALLER_OR_EQUAL) (NUMBER | STRING) CLOSE_BRACKET OPEN_LOOP loop_body CLOSE_LOOP
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-while: WHILE OPEN_BRACKET variable CLOSE_BRACKET OPEN_LOOP loop_body CLOSE_LOOP
+3. Download ANTLR tool and generate lexer and parser:
 
-loop_body: (statement | function_call)+ NEW_LINE
+    ```sh
+    curl -O https://www.antlr.org/download/antlr-4.9.2-complete.jar
+    java -jar antlr-4.9.2-complete.jar -Dlanguage=Python3 src/MGprogramming.g4 -o src
+    ```
 
-return: RETURN (VARIABLE | NUMBER | STRING) NEW_LINE
+### Running the Interpreter
 
-function_call: FUNCT_NAME OPEN_BRACET args? CLOSE_BRACKET NEW_LINE
+1. Run your code:
 
-comment: COMMENT STRING NEW_LINE | START_LONG_COMMENT STRING END_LONG_COMMENT
+    ```sh
+    python src/main.py your_code.mgp
+    ```
 
-list: OPEN_LIST_BRACKET 'STRING' | NUMBER (',' 'STRING' | NUMBER)* CLOSE_LIST_BRACKET
+### Running the CLI
 
-table : OPEN_LIST_BRACKET list* CLOSE_LIST_BRACKET
+1. Use the CLI:
 
-dictionary: DICT_OPEN_BRACKET (' VARIABLE ' : 'STRING' | INT | list)? (, 'VARIABLE' : 'STRING' | INT | list )* DICT_CLOSE_BRACKET
+    ```sh
+    python cli/mgp_cli.py your_code.mgp
+    ```
 
-```
+### Running Tests
 
+1. Run tests using unittest:
 
+    ```sh
+    python -m unittest discover tests
+    ```
+
+## Project Structure
+
+- `src/`: Source files, including the main script, lexer, parser, and interpreter.
+- `cli/`: Command-line interface scripts.
+- `tests/`: Test files.
+- `.gitignore`: Git ignore file.
+- `requirements.txt`: Python dependencies.
+- `README.md`: Project documentation.
+- `LICENSE`: License file.
+
+## License
+
+[MIT License](LICENSE)
