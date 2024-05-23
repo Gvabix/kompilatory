@@ -1,5 +1,6 @@
 grammar MGprogramming;
 
+// Tokens
 ASSIGN_VALUE: 'todorhoiloh';
 PLUS: '+';
 MINUS: '-';
@@ -45,7 +46,6 @@ LIST: 'jagsaalt';
 SET: 'bagts';
 DICT: 'buleg';
 
-VAR_TYPE: INT | LONG | FLOAT | DOUBLE | CHAR | STRING | BOOLEAN | LIST | SET | DICT;
 
 COMMENT: '>>' ~[\r\n]* -> skip;
 START_LONG_COMMENT: '>>>' ~[\r\n]* '<<<' -> skip;
@@ -61,13 +61,15 @@ CLOSE_LIST_BRACKET: ']';
 DICT_OPEN_BRACKET: '{';
 DICT_CLOSE_BRACKET: '}';
 
+// Skip white spaces
 WS: [ \t\r\n]+ -> skip;
 
-/* grammar */
-
+// Grammar rules
 program: (class_def | function_def | statement)+ EOF;
+var_type: INT | LONG | FLOAT | DOUBLE | CHAR | STRING | BOOLEAN | LIST | SET | DICT;
 
-statement: assign 
+statement: assign
+         | print
          | for_loop 
          | if_stmt 
          | while_loop 
@@ -78,11 +80,14 @@ class_def: CLASS_DEF VARIABLE START_CLASS (function_def | statement)* END_CLASS 
 
 function_def: FUNCT_NAME VARIABLE OPEN_BRACKET args? CLOSE_BRACKET START_FUNCTION function_body END_FUNCTION NEW_LINE;
 
-args: VAR_TYPE VARIABLE (',' VAR_TYPE VARIABLE)* ;
+args: var_type VARIABLE (',' var_type VARIABLE)* ;
 
 function_body: (assign | for_loop | if_stmt | while_loop | return_stmt | function_call)+;
 
-assign: VAR_TYPE VARIABLE ASSIGN_VALUE (VARIABLE | NUMBER | STRING_LITERAL) NEW_LINE;
+value: VARIABLE | NUMBER | STRING_LITERAL NEW_LINE;
+assign: var_type VARIABLE ASSIGN_VALUE value NEW_LINE;
+
+print: PRINT OPEN_BRACKET value CLOSE_BRACKET NEW_LINE;
 
 for_loop: FOR VARIABLE FOR_FROM NUMBER FOR_TO NUMBER FOR_JUMP NUMBER OPEN_BRACKET loop_body CLOSE_BRACKET;
 

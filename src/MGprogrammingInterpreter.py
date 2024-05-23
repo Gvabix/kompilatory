@@ -1,5 +1,5 @@
-from MGprogrammingListener import MGprogrammingListener
-from MGprogrammingParser import MGprogrammingParser
+from .MGprogrammingListener import MGprogrammingListener
+from .MGprogrammingParser import MGprogrammingParser
 
 class MGprogrammingInterpreter(MGprogrammingListener):
     def __init__(self):
@@ -13,7 +13,7 @@ class MGprogrammingInterpreter(MGprogrammingListener):
         parsed_value = self.parse_value(var_type, value)
         self.variables[var_name] = parsed_value
 
-    def exitPrint(self, ctx: MGprogrammingParser.PrintContext):
+    def exitPrint(self, ctx: MGprogrammingParser.inContext):
         var_name = ctx.VARIABLE().getText()
         if var_name in self.variables:
             print(self.variables[var_name])
@@ -36,3 +36,9 @@ class MGprogrammingInterpreter(MGprogrammingListener):
         elif var_type == "tiim_ugui":
             return value.lower() == "true"
         return value
+    
+    def save_variables_to_file(self, filename):
+        with open(filename, 'w') as f:
+            for var_name, var_value in self.variables.items():
+                f.write(f"{var_name}: {var_value}\n")
+

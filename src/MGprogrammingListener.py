@@ -1,6 +1,6 @@
-# Generated from src/MGprogramming.g4 by ANTLR 4.7.2
+# Generated from tmp/MGprogramming.g4 by ANTLR 4.13.1
 from antlr4 import *
-if __name__ is not None and "." in __name__:
+if "." in __name__:
     from .MGprogrammingParser import MGprogrammingParser
 else:
     from MGprogrammingParser import MGprogrammingParser
@@ -14,6 +14,15 @@ class MGprogrammingListener(ParseTreeListener):
 
     # Exit a parse tree produced by MGprogrammingParser#program.
     def exitProgram(self, ctx:MGprogrammingParser.ProgramContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#var_type.
+    def enterVar_type(self, ctx:MGprogrammingParser.Var_typeContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#var_type.
+    def exitVar_type(self, ctx:MGprogrammingParser.Var_typeContext):
         pass
 
 
@@ -62,12 +71,30 @@ class MGprogrammingListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MGprogrammingParser#value.
+    def enterValue(self, ctx:MGprogrammingParser.ValueContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#value.
+    def exitValue(self, ctx:MGprogrammingParser.ValueContext):
+        pass
+
+
     # Enter a parse tree produced by MGprogrammingParser#assign.
     def enterAssign(self, ctx:MGprogrammingParser.AssignContext):
         pass
 
     # Exit a parse tree produced by MGprogrammingParser#assign.
     def exitAssign(self, ctx:MGprogrammingParser.AssignContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#print.
+    def enterPrint(self, ctx:MGprogrammingParser.PrintContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#print.
+    def exitPrint(self, ctx:MGprogrammingParser.PrintContext):
         pass
 
 
@@ -125,15 +152,6 @@ class MGprogrammingListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MGprogrammingParser#comment.
-    def enterComment(self, ctx:MGprogrammingParser.CommentContext):
-        pass
-
-    # Exit a parse tree produced by MGprogrammingParser#comment.
-    def exitComment(self, ctx:MGprogrammingParser.CommentContext):
-        pass
-
-
     # Enter a parse tree produced by MGprogrammingParser#array.
     def enterArray(self, ctx:MGprogrammingParser.ArrayContext):
         pass
@@ -161,3 +179,5 @@ class MGprogrammingListener(ParseTreeListener):
         pass
 
 
+
+del MGprogrammingParser
