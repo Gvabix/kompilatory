@@ -1,4 +1,4 @@
-# Generated from tmp/MGprogramming.g4 by ANTLR 4.13.1
+# Generated from MGprogramming.g4 by ANTLR 4.13.1
 from antlr4 import *
 from io import StringIO
 import sys

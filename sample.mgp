@@ -1,3 +1,11 @@
-ner main() ehleh
-    buhel hello todorhoiloh 5
+﻿ner main() ehleh 
+hevleh("hello")
+havleh("today")
 duusgah
+
+
+
+
+ner buhel function() ehleh
+buhel x todorhoiloh 2
+hevleh(x)

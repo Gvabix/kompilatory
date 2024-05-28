@@ -1,4 +1,4 @@
-# Generated from tmp/MGprogramming.g4 by ANTLR 4.13.1
+# Generated from MGprogramming.g4 by ANTLR 4.13.1
 from antlr4 import *
 if "." in __name__:
     from .MGprogrammingParser import MGprogrammingParser
@@ -77,6 +77,15 @@ class MGprogrammingListener(ParseTreeListener):
 
     # Exit a parse tree produced by MGprogrammingParser#value.
     def exitValue(self, ctx:MGprogrammingParser.ValueContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#declaration.
+    def enterDeclaration(self, ctx:MGprogrammingParser.DeclarationContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#declaration.
+    def exitDeclaration(self, ctx:MGprogrammingParser.DeclarationContext):
         pass
 
 
@@ -176,6 +185,24 @@ class MGprogrammingListener(ParseTreeListener):
 
     # Exit a parse tree produced by MGprogrammingParser#dictionary.
     def exitDictionary(self, ctx:MGprogrammingParser.DictionaryContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#arithmeticExpression.
+    def enterArithmeticExpression(self, ctx:MGprogrammingParser.ArithmeticExpressionContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#arithmeticExpression.
+    def exitArithmeticExpression(self, ctx:MGprogrammingParser.ArithmeticExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#comment.
+    def enterComment(self, ctx:MGprogrammingParser.CommentContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#comment.
+    def exitComment(self, ctx:MGprogrammingParser.CommentContext):
         pass
 
 

@@ -46,7 +46,6 @@ LIST: 'jagsaalt';
 SET: 'bagts';
 DICT: 'buleg';
 
-
 COMMENT: '>>' ~[\r\n]* -> skip;
 START_LONG_COMMENT: '>>>' ~[\r\n]* '<<<' -> skip;
 
@@ -70,11 +69,12 @@ var_type: INT | LONG | FLOAT | DOUBLE | CHAR | STRING | BOOLEAN | LIST | SET | D
 
 statement: assign
          | print
-         | for_loop 
-         | if_stmt 
-         | while_loop 
-         | return_stmt 
-         | function_call;
+         | for_loop
+         | if_stmt
+         | while_loop
+         | function_call
+         | comment
+         | declaration;
 
 class_def: CLASS_DEF VARIABLE START_CLASS (function_def | statement)* END_CLASS NEW_LINE;
 
@@ -82,12 +82,16 @@ function_def: FUNCT_NAME VARIABLE OPEN_BRACKET args? CLOSE_BRACKET START_FUNCTIO
 
 args: var_type VARIABLE (',' var_type VARIABLE)* ;
 
-function_body: (assign | for_loop | if_stmt | while_loop | return_stmt | function_call)+;
+function_body: (assign | for_loop | if_stmt | while_loop | return_stmt | function_call | arithmeticExpression)+;
 
-value: VARIABLE | NUMBER | STRING_LITERAL NEW_LINE;
+value: VARIABLE | NUMBER | STRING_LITERAL | arithmeticExpression;
+
+declaration: var_type VARIABLE  NEW_LINE
+| var_type VARIABLE ASSIGN_VALUE value NEW_LINE;
+
 assign: var_type VARIABLE ASSIGN_VALUE value NEW_LINE;
 
-print: PRINT OPEN_BRACKET value CLOSE_BRACKET NEW_LINE;
+print: PRINT OPEN_BRACKET (value | arithmeticExpression) CLOSE_BRACKET NEW_LINE;
 
 for_loop: FOR VARIABLE FOR_FROM NUMBER FOR_TO NUMBER FOR_JUMP NUMBER OPEN_BRACKET loop_body CLOSE_BRACKET;
 
@@ -106,3 +110,12 @@ array: OPEN_LIST_BRACKET (STRING_LITERAL | NUMBER) (',' (STRING_LITERAL | NUMBER
 table: OPEN_LIST_BRACKET array* CLOSE_LIST_BRACKET;
 
 dictionary: DICT_OPEN_BRACKET (VARIABLE ':' (STRING_LITERAL | NUMBER | array) (',' VARIABLE ':' (STRING_LITERAL | NUMBER | array))*)? DICT_CLOSE_BRACKET;
+
+arithmeticExpression:
+VARIABLE
+| NUMBER
+| function_call
+| OPEN_BRACKET arithmeticExpression CLOSE_BRACKET
+| arithmeticExpression ( PLUS | MINUS | MULTIPLY | DIVIDE | POWER | MODULO ) arithmeticExpression;
+
+comment: COMMENT VARIABLE NEW_LINE | START_LONG_COMMENT;
