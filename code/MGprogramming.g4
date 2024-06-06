@@ -1,6 +1,8 @@
 grammar MGprogramming;
 
+
 // Tokens
+
 ASSIGN_VALUE: 'todorhoiloh';
 PLUS: '+';
 MINUS: '-';
@@ -30,10 +32,14 @@ FOR_FROM: 'aas';
 FOR_TO: 'tuld';
 FOR_JUMP: 'nii tuld';
 IF: 'hervee';
-FUNCT_NAME: 'ner';
+ELSE: 'mon';
+FUNCT_DEF: 'ner';
 RETURN: 'butsah';
 PRINT: 'hevleh';
 INPUT: 'orolt';
+FUNCTION_CALL: 'zalgakh';
+CLASS_INSTANCE: 'jishee';
+ELSE_IF:'öör bol';
 
 INT: 'buhel';
 LONG: 'urt';
@@ -46,76 +52,121 @@ LIST: 'jagsaalt';
 SET: 'bagts';
 DICT: 'buleg';
 
+AND:'bolon';
+OR: 'esvel';
+TRUE:'ünen';
+FALSE:'khudal';
+NOT: '!';
+
+
 COMMENT: '>>' ~[\r\n]* -> skip;
-START_LONG_COMMENT: '>>>' ~[\r\n]* '<<<' -> skip;
+
+START_LONG_COMMENT: '>>>' .*? '<<<' -> skip;
 
 NUMBER: [0-9]+ ('.' [0-9]+)?;
+
 VARIABLE: [a-zA-Z_][a-zA-Z0-9_]*;
+
 STRING_LITERAL: '"' ('\\"' | .)*? '"';
 
+
 OPEN_BRACKET: '(';
+
 CLOSE_BRACKET: ')';
+
 OPEN_LIST_BRACKET: '[';
+
 CLOSE_LIST_BRACKET: ']';
+
 DICT_OPEN_BRACKET: '{';
+
 DICT_CLOSE_BRACKET: '}';
 
+
 // Skip white spaces
+
 WS: [ \t\r\n]+ -> skip;
 
-// Grammar rules
-program: (class_def | function_def | statement)+ EOF;
-var_type: INT | LONG | FLOAT | DOUBLE | CHAR | STRING | BOOLEAN | LIST | SET | DICT;
+//Grammar rules
 
-statement: assign
-         | print
-         | for_loop
-         | if_stmt
-         | while_loop
-         | function_call
-         | comment
-         | declaration;
+program: codes* EOF;
 
-class_def: CLASS_DEF VARIABLE START_CLASS (function_def | statement)* END_CLASS NEW_LINE;
+codes: class_ | function_def | statement NEW_LINE?;
 
-function_def: FUNCT_NAME VARIABLE OPEN_BRACKET args? CLOSE_BRACKET START_FUNCTION function_body END_FUNCTION NEW_LINE;
+class_: CLASS_DEF VARIABLE START_CLASS class_body END_CLASS;
 
-args: var_type VARIABLE (',' var_type VARIABLE)* ;
+class_instance: CLASS_INSTANCE VARIABLE OPEN_BRACKET args? CLOSE_BRACKET;
 
-function_body: (assign | for_loop | if_stmt | while_loop | return_stmt | function_call | arithmeticExpression)+;
+class_body: (function_def | declare)*;
 
-value: VARIABLE | NUMBER | STRING_LITERAL | arithmeticExpression;
+function_def: FUNCT_DEF arg_types? VARIABLE OPEN_BRACKET args? CLOSE_BRACKET START_FUNCTION (statement)* (return_stmt)? END_FUNCTION;
 
-declaration: var_type VARIABLE  NEW_LINE
-| var_type VARIABLE ASSIGN_VALUE value NEW_LINE;
+args: arg_types VARIABLE (',' arg_types VARIABLE)*;
 
-assign: var_type VARIABLE ASSIGN_VALUE value NEW_LINE;
+return_stmt: RETURN returners;
 
-print: PRINT OPEN_BRACKET (value | arithmeticExpression) CLOSE_BRACKET NEW_LINE;
+returners: TRUE | FALSE | VARIABLE | NUMBER | STRING_LITERAL;
 
-for_loop: FOR VARIABLE FOR_FROM NUMBER FOR_TO NUMBER FOR_JUMP NUMBER OPEN_BRACKET loop_body CLOSE_BRACKET;
+statement: print 
+    | if_statement 
+    | for_loop 
+    | while_loop 
+    | assign 
+    | declare 
+    | function_call 
+    | comment
+    |NEW_LINE;
 
-if_stmt: IF OPEN_BRACKET VARIABLE (EQUAL | GREATER_THAN | LESSER_THAN | GREATER_OR_EQUAL | LESSER_OR_EQUAL) (NUMBER | STRING_LITERAL) CLOSE_BRACKET START_LOOP loop_body END_LOOP;
+arg_types: INT | LONG | FLOAT | DOUBLE | CHAR | STRING | BOOLEAN | LIST | SET | DICT;
 
-while_loop: WHILE OPEN_BRACKET VARIABLE CLOSE_BRACKET START_LOOP loop_body END_LOOP;
+print: PRINT OPEN_BRACKET printers CLOSE_BRACKET;
 
-loop_body: (statement | function_call)+;
+printers: arithmetic_expr | bool_expr | VARIABLE | function_call | STRING_LITERAL | class_instance;
 
-return_stmt: RETURN (VARIABLE | NUMBER | STRING_LITERAL) NEW_LINE;
+if_statement: IF OPEN_BRACKET bool_expr CLOSE_BRACKET START_LOOP loop_body  END_LOOP (else_if_statement)* (else_statement)?;
 
-function_call: FUNCT_NAME VARIABLE OPEN_BRACKET (VARIABLE (',' VARIABLE)*)? CLOSE_BRACKET NEW_LINE;
+else_if_statement: ELSE_IF OPEN_BRACKET bool_expr CLOSE_BRACKET START_LOOP loop_body  END_LOOP;
 
+else_statement: ELSE START_LOOP loop_body (return_stmt)? END_LOOP;
+
+for_loop: FOR arg_types? VARIABLE for_statement START_LOOP loop_body END_LOOP;  
+
+for_statement: FOR_FROM NUMBER FOR_TO NUMBER FOR_JUMP NUMBER
+             | FOR_FROM NUMBER FOR_TO NUMBER
+             | FOR_TO NUMBER
+             | FOR_TO NUMBER FOR_JUMP NUMBER;
+
+while_loop: WHILE OPEN_BRACKET bool_expr CLOSE_BRACKET START_LOOP loop_body (return_stmt)? END_LOOP;
+
+loop_body: (statement)*;
+
+assign: VARIABLE ASSIGN_VALUE printers;
+
+declare: arg_types VARIABLE | arg_types VARIABLE ASSIGN_VALUE printers;
+
+variables: (VARIABLE|NUMBER|STRING_LITERAL) (',' (VARIABLE|NUMBER|STRING_LITERAL))*;
+
+function_call: FUNCTION_CALL VARIABLE OPEN_BRACKET variables? CLOSE_BRACKET;
+
+comment: COMMENT  NEW_LINE | START_LONG_COMMENT;
+
+bool_expr: bool_expr (AND | OR) bool_expr 
+                           | arithmetic_expr (GREATER_THAN | LESSER_THAN | GREATER_OR_EQUAL | LESSER_OR_EQUAL | EQUAL | NOT_EQUAL) arithmetic_expr
+                           | TRUE 
+                           | FALSE 
+                           | VARIABLE 
+                           | NOT bool_expr 
+                           | OPEN_BRACKET bool_expr CLOSE_BRACKET 
+                           | function_call;
+
+arithmetic_expr: VARIABLE
+                 | NUMBER
+                 | function_call
+                 | OPEN_BRACKET arithmetic_expr CLOSE_BRACKET
+                 | arithmetic_expr ( PLUS | MINUS | MULTIPLY | DIVIDE | POWER | MODULO ) arithmetic_expr;
+                 
 array: OPEN_LIST_BRACKET (STRING_LITERAL | NUMBER) (',' (STRING_LITERAL | NUMBER))* CLOSE_LIST_BRACKET;
 
 table: OPEN_LIST_BRACKET array* CLOSE_LIST_BRACKET;
 
 dictionary: DICT_OPEN_BRACKET (VARIABLE ':' (STRING_LITERAL | NUMBER | array) (',' VARIABLE ':' (STRING_LITERAL | NUMBER | array))*)? DICT_CLOSE_BRACKET;
-
-arithmeticExpression:
-VARIABLE
-| NUMBER
-| function_call
-| OPEN_BRACKET arithmeticExpression CLOSE_BRACKET
-| arithmeticExpression ( PLUS | MINUS | MULTIPLY | DIVIDE | POWER | MODULO ) arithmeticExpression;
-
-comment: COMMENT VARIABLE NEW_LINE | START_LONG_COMMENT;
