@@ -209,6 +209,12 @@ duusgah
 
 zalgakh main
 ```
+
+
+![image](https://github.com/Gvabix/kompilatory/assets/115698237/c9211b18-2fa3-4fa2-99a0-c0ff23888d6d)
+![image](https://github.com/Gvabix/kompilatory/assets/115698237/597e378e-a158-4afe-b693-b3f344f9cfe0)
+![image](https://github.com/Gvabix/kompilatory/assets/115698237/294c4b9c-e138-43b8-8c9a-490151201952)
+
 ## MGprogramming Хэлний Граммар
 Програмын Ерөнхий Бүтэц
 MGprogramming хэл нь программчлалын үндсэн элементүүдийг агуулсан бөгөөд доорх бүтэцтэй байна:
