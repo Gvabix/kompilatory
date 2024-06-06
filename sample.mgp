@@ -63,7 +63,7 @@ hevleh(zalgakh function())
 ~~~~~~
 
 
-ex.6
+ex.5
 
 
 
@@ -92,7 +92,7 @@ duusgah
 zalgakh main()
 
 
-ex.7
+ex.6
 buhel x todorhoiloh 12
 buhel c todorhoiloh 2^x
 hervee (x <= 5) ehleh_davtalt
@@ -103,6 +103,40 @@ duusgah_davtalt
 öör bol ( x>5 bolon x <= 10) ehleh_davtalt
     hevleh("hi")
 duusgah_davtalt
+
+
+ex.7
+ner buhel main() ehleh
+    hevleh(5 > 3)
+    hevleh(2 < 4)
+    hevleh(5 >= 5)
+    hevleh(4 <= 6)
+    hevleh(7 = 7)
+    hevleh(8 =/= 9)
+    hevleh(3 < 5 bolon 5 > 2)
+    hevleh(3 < 5 esvel 5 > 8)
+    hevleh(!ünen)
+duusgah
+zalgakh main()
+
+
+ex.8
+ner buhel main() ehleh
+    hevleh(2 ^ 3)
+    hevleh(3 ^ 2)
+    hevleh(3 ^ 1)
+    hevleh(11 ^ 0)
+    hevleh(2 ^ 0)
+    hevleh(4 ^ 4)
+
+duusgah
+
+
+zalgakh main()
+
+
+
+
 
 mon ehleh_davtalt
     hevleh(c)
