@@ -1,11 +1,109 @@
-﻿ner main() ehleh 
-hevleh("hello")
-havleh("today")
+przykłady:
+
+ex.1
+hevleh(2+3)
+buhel x todorhoiloh 2
+buhel y todorhoiloh 3
+buhel a todorhoiloh x+y
+buhel b todorhoiloh x^y
+
+hevleh(a)
+hevleh(x)
+hevleh(y)
+hevleh(b)
+
+
+
+~~~~~~
+ex.2
+buhel a todorhoiloh 1
+
+zuur (a <= 8) ehleh_davtalt
+hevleh("We can count till:") 
+hevleh(a)
+
+a todorhoiloh a+1 duusgah_davtalt
+~~~~~~
+ex.3
+
+ner buhel arytmetyczne() ehleh
+buhel x todorhoiloh 2
+buhel z todorhoiloh 4
+butarhai a todorhoiloh 2.3
+butarhai b todorhoiloh 1.7
+
+hevleh("Addition:")
+hevleh(x+z)
+
+hevleh("Multiplication:")
+hevleh(a*b)
 duusgah
 
 
+zalgakh arytmetyczne()
 
+
+hevleh(2^3)
+
+buhel g
+g todorhoiloh 3
+hevleh(g)
+
+
+ex.4
 
 ner buhel function() ehleh
 buhel x todorhoiloh 2
+butsah x
+duusgah
+
+hevleh(zalgakh function())
+~
+
+~~~~~~
+
+
+ex.6
+
+
+
+ner buhel main() ehleh
+    buhel a todorhoiloh 5
+    buhel b todorhoiloh 10
+    butarhai c todorhoiloh 3.14
+    mor message todorhoiloh "Hello, MGprogramming!"
+
+    hevleh("Value of a: ")
+    hevleh(a)
+
+    hevleh("Value of b: ")
+    hevleh(b)
+
+    hevleh("Sum of a and b: ")
+    hevleh(a + b)
+
+    hevleh("Value of c: ")
+    hevleh(c)
+
+    hevleh("Message: ")
+    hevleh(message)
+duusgah
+
+zalgakh main()
+
+
+ex.7
+buhel x todorhoiloh 12
+buhel c todorhoiloh 2^x
+hervee (x <= 5) ehleh_davtalt
+    hevleh("Our number is smaller than 5. Its is")
 hevleh(x)
+duusgah_davtalt
+
+öör bol ( x>5 bolon x <= 10) ehleh_davtalt
+    hevleh("hi")
+duusgah_davtalt
+
+mon ehleh_davtalt
+    hevleh(c)
+duusgah_davtalt
