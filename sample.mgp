@@ -104,6 +104,10 @@ duusgah_davtalt
     hevleh("hi")
 duusgah_davtalt
 
+mon ehleh_davtalt
+    hevleh(c)
+duusgah_davtalt
+
 
 ex.7
 ner buhel main() ehleh
