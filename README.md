@@ -202,18 +202,135 @@ Kod źródłowy w języku MGprogramming:
 
 ```plaintext
 ner buhel main() ehleh
-    buhel a todorhoiloh 3
-    buhel b todorhoiloh 5
-    buhel result todorhoiloh a + b
+    hevleh(2 ^ 3)
+    hevleh(3 ^ 2)
+    hevleh(3 ^ 1)
+    hevleh(11 ^ 0)
+    hevleh(2 ^ 0)
+    hevleh(4 ^ 4)
+
 duusgah
 
-zalgakh main
+
+zalgakh main()
 ```
+```plaintext
+ner buhel main() ehleh
+    hevleh(5 > 3)
+    hevleh(2 < 4)
+    hevleh(5 >= 5)
+    hevleh(4 <= 6)
+    hevleh(7 = 7)
+    hevleh(8 =/= 9)
+    hevleh(3 < 5 bolon 5 > 2)
+    hevleh(3 < 5 esvel 5 > 8)
+    hevleh(!ünen)
+duusgah
+zalgakh main()
+```
+```plaintext
+ex.1
+hevleh(2+3)
+buhel x todorhoiloh 2
+buhel y todorhoiloh 3
+buhel a todorhoiloh x+y
+buhel b todorhoiloh x^y
+
+hevleh(a)
+hevleh(x)
+hevleh(y)
+hevleh(b)
 
 
-![image](https://github.com/Gvabix/kompilatory/assets/115698237/c9211b18-2fa3-4fa2-99a0-c0ff23888d6d)
-![image](https://github.com/Gvabix/kompilatory/assets/115698237/597e378e-a158-4afe-b693-b3f344f9cfe0)
-![image](https://github.com/Gvabix/kompilatory/assets/115698237/294c4b9c-e138-43b8-8c9a-490151201952)
+```
+```
+buhel a todorhoiloh 1
+
+zuur (a <= 8) ehleh_davtalt
+hevleh("We can count till:") 
+hevleh(a)
+
+a todorhoiloh a+1 duusgah_davtalt
+```
+```
+ner buhel arytmetyczne() ehleh
+buhel x todorhoiloh 2
+buhel z todorhoiloh 4
+butarhai a todorhoiloh 2.3
+butarhai b todorhoiloh 1.7
+
+hevleh("Addition:")
+hevleh(x+z)
+
+hevleh("Multiplication:")
+hevleh(a*b)
+duusgah
+
+
+zalgakh arytmetyczne()
+
+
+hevleh(2^3)
+
+buhel g
+g todorhoiloh 3
+hevleh(g)
+
+```
+```
+ner buhel function() ehleh
+buhel x todorhoiloh 2
+butsah x
+duusgah
+
+hevleh(zalgakh function())
+```
+```
+ner buhel main() ehleh
+    buhel a todorhoiloh 5
+    buhel b todorhoiloh 10
+    butarhai c todorhoiloh 3.14
+    mor message todorhoiloh "Hello, MGprogramming!"
+
+    hevleh("Value of a: ")
+    hevleh(a)
+
+    hevleh("Value of b: ")
+    hevleh(b)
+
+    hevleh("Sum of a and b: ")
+    hevleh(a + b)
+
+    hevleh("Value of c: ")
+    hevleh(c)
+
+    hevleh("Message: ")
+    hevleh(message)
+duusgah
+
+zalgakh main()
+
+```
+```
+buhel x todorhoiloh 12
+buhel c todorhoiloh 2^x
+hervee (x <= 5) ehleh_davtalt
+    hevleh("Our number is smaller than 5. Its is")
+hevleh(x)
+duusgah_davtalt
+
+öör bol ( x>5 bolon x <= 10) ehleh_davtalt
+    hevleh("hi")
+duusgah_davtalt
+
+mon ehleh_davtalt
+    hevleh(c)
+duusgah_davtalt
+
+```
+Przykład- parse tree
+
+![image](https://github.com/Gvabix/kompilatory/assets/115698237/803616a6-e052-432f-8a3c-95874466b1f1)
 
 ## MGprogramming Хэлний Граммар
 Програмын Ерөнхий Бүтэц
