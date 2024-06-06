@@ -17,30 +17,39 @@ class MGprogrammingListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MGprogrammingParser#var_type.
-    def enterVar_type(self, ctx:MGprogrammingParser.Var_typeContext):
+    # Enter a parse tree produced by MGprogrammingParser#codes.
+    def enterCodes(self, ctx:MGprogrammingParser.CodesContext):
         pass
 
-    # Exit a parse tree produced by MGprogrammingParser#var_type.
-    def exitVar_type(self, ctx:MGprogrammingParser.Var_typeContext):
-        pass
-
-
-    # Enter a parse tree produced by MGprogrammingParser#statement.
-    def enterStatement(self, ctx:MGprogrammingParser.StatementContext):
-        pass
-
-    # Exit a parse tree produced by MGprogrammingParser#statement.
-    def exitStatement(self, ctx:MGprogrammingParser.StatementContext):
+    # Exit a parse tree produced by MGprogrammingParser#codes.
+    def exitCodes(self, ctx:MGprogrammingParser.CodesContext):
         pass
 
 
-    # Enter a parse tree produced by MGprogrammingParser#class_def.
-    def enterClass_def(self, ctx:MGprogrammingParser.Class_defContext):
+    # Enter a parse tree produced by MGprogrammingParser#class_.
+    def enterClass_(self, ctx:MGprogrammingParser.Class_Context):
         pass
 
-    # Exit a parse tree produced by MGprogrammingParser#class_def.
-    def exitClass_def(self, ctx:MGprogrammingParser.Class_defContext):
+    # Exit a parse tree produced by MGprogrammingParser#class_.
+    def exitClass_(self, ctx:MGprogrammingParser.Class_Context):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#class_instance.
+    def enterClass_instance(self, ctx:MGprogrammingParser.Class_instanceContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#class_instance.
+    def exitClass_instance(self, ctx:MGprogrammingParser.Class_instanceContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#class_body.
+    def enterClass_body(self, ctx:MGprogrammingParser.Class_bodyContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#class_body.
+    def exitClass_body(self, ctx:MGprogrammingParser.Class_bodyContext):
         pass
 
 
@@ -62,39 +71,39 @@ class MGprogrammingListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MGprogrammingParser#function_body.
-    def enterFunction_body(self, ctx:MGprogrammingParser.Function_bodyContext):
+    # Enter a parse tree produced by MGprogrammingParser#return_stmt.
+    def enterReturn_stmt(self, ctx:MGprogrammingParser.Return_stmtContext):
         pass
 
-    # Exit a parse tree produced by MGprogrammingParser#function_body.
-    def exitFunction_body(self, ctx:MGprogrammingParser.Function_bodyContext):
-        pass
-
-
-    # Enter a parse tree produced by MGprogrammingParser#value.
-    def enterValue(self, ctx:MGprogrammingParser.ValueContext):
-        pass
-
-    # Exit a parse tree produced by MGprogrammingParser#value.
-    def exitValue(self, ctx:MGprogrammingParser.ValueContext):
+    # Exit a parse tree produced by MGprogrammingParser#return_stmt.
+    def exitReturn_stmt(self, ctx:MGprogrammingParser.Return_stmtContext):
         pass
 
 
-    # Enter a parse tree produced by MGprogrammingParser#declaration.
-    def enterDeclaration(self, ctx:MGprogrammingParser.DeclarationContext):
+    # Enter a parse tree produced by MGprogrammingParser#returners.
+    def enterReturners(self, ctx:MGprogrammingParser.ReturnersContext):
         pass
 
-    # Exit a parse tree produced by MGprogrammingParser#declaration.
-    def exitDeclaration(self, ctx:MGprogrammingParser.DeclarationContext):
+    # Exit a parse tree produced by MGprogrammingParser#returners.
+    def exitReturners(self, ctx:MGprogrammingParser.ReturnersContext):
         pass
 
 
-    # Enter a parse tree produced by MGprogrammingParser#assign.
-    def enterAssign(self, ctx:MGprogrammingParser.AssignContext):
+    # Enter a parse tree produced by MGprogrammingParser#statement.
+    def enterStatement(self, ctx:MGprogrammingParser.StatementContext):
         pass
 
-    # Exit a parse tree produced by MGprogrammingParser#assign.
-    def exitAssign(self, ctx:MGprogrammingParser.AssignContext):
+    # Exit a parse tree produced by MGprogrammingParser#statement.
+    def exitStatement(self, ctx:MGprogrammingParser.StatementContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#arg_types.
+    def enterArg_types(self, ctx:MGprogrammingParser.Arg_typesContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#arg_types.
+    def exitArg_types(self, ctx:MGprogrammingParser.Arg_typesContext):
         pass
 
 
@@ -107,6 +116,42 @@ class MGprogrammingListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MGprogrammingParser#printers.
+    def enterPrinters(self, ctx:MGprogrammingParser.PrintersContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#printers.
+    def exitPrinters(self, ctx:MGprogrammingParser.PrintersContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#if_statement.
+    def enterIf_statement(self, ctx:MGprogrammingParser.If_statementContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#if_statement.
+    def exitIf_statement(self, ctx:MGprogrammingParser.If_statementContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#else_if_statement.
+    def enterElse_if_statement(self, ctx:MGprogrammingParser.Else_if_statementContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#else_if_statement.
+    def exitElse_if_statement(self, ctx:MGprogrammingParser.Else_if_statementContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#else_statement.
+    def enterElse_statement(self, ctx:MGprogrammingParser.Else_statementContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#else_statement.
+    def exitElse_statement(self, ctx:MGprogrammingParser.Else_statementContext):
+        pass
+
+
     # Enter a parse tree produced by MGprogrammingParser#for_loop.
     def enterFor_loop(self, ctx:MGprogrammingParser.For_loopContext):
         pass
@@ -116,12 +161,12 @@ class MGprogrammingListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MGprogrammingParser#if_stmt.
-    def enterIf_stmt(self, ctx:MGprogrammingParser.If_stmtContext):
+    # Enter a parse tree produced by MGprogrammingParser#for_statement.
+    def enterFor_statement(self, ctx:MGprogrammingParser.For_statementContext):
         pass
 
-    # Exit a parse tree produced by MGprogrammingParser#if_stmt.
-    def exitIf_stmt(self, ctx:MGprogrammingParser.If_stmtContext):
+    # Exit a parse tree produced by MGprogrammingParser#for_statement.
+    def exitFor_statement(self, ctx:MGprogrammingParser.For_statementContext):
         pass
 
 
@@ -143,12 +188,30 @@ class MGprogrammingListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MGprogrammingParser#return_stmt.
-    def enterReturn_stmt(self, ctx:MGprogrammingParser.Return_stmtContext):
+    # Enter a parse tree produced by MGprogrammingParser#assign.
+    def enterAssign(self, ctx:MGprogrammingParser.AssignContext):
         pass
 
-    # Exit a parse tree produced by MGprogrammingParser#return_stmt.
-    def exitReturn_stmt(self, ctx:MGprogrammingParser.Return_stmtContext):
+    # Exit a parse tree produced by MGprogrammingParser#assign.
+    def exitAssign(self, ctx:MGprogrammingParser.AssignContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#declare.
+    def enterDeclare(self, ctx:MGprogrammingParser.DeclareContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#declare.
+    def exitDeclare(self, ctx:MGprogrammingParser.DeclareContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#variables.
+    def enterVariables(self, ctx:MGprogrammingParser.VariablesContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#variables.
+    def exitVariables(self, ctx:MGprogrammingParser.VariablesContext):
         pass
 
 
@@ -158,6 +221,33 @@ class MGprogrammingListener(ParseTreeListener):
 
     # Exit a parse tree produced by MGprogrammingParser#function_call.
     def exitFunction_call(self, ctx:MGprogrammingParser.Function_callContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#comment.
+    def enterComment(self, ctx:MGprogrammingParser.CommentContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#comment.
+    def exitComment(self, ctx:MGprogrammingParser.CommentContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#bool_expr.
+    def enterBool_expr(self, ctx:MGprogrammingParser.Bool_exprContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#bool_expr.
+    def exitBool_expr(self, ctx:MGprogrammingParser.Bool_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by MGprogrammingParser#arithmetic_expr.
+    def enterArithmetic_expr(self, ctx:MGprogrammingParser.Arithmetic_exprContext):
+        pass
+
+    # Exit a parse tree produced by MGprogrammingParser#arithmetic_expr.
+    def exitArithmetic_expr(self, ctx:MGprogrammingParser.Arithmetic_exprContext):
         pass
 
 
@@ -185,24 +275,6 @@ class MGprogrammingListener(ParseTreeListener):
 
     # Exit a parse tree produced by MGprogrammingParser#dictionary.
     def exitDictionary(self, ctx:MGprogrammingParser.DictionaryContext):
-        pass
-
-
-    # Enter a parse tree produced by MGprogrammingParser#arithmeticExpression.
-    def enterArithmeticExpression(self, ctx:MGprogrammingParser.ArithmeticExpressionContext):
-        pass
-
-    # Exit a parse tree produced by MGprogrammingParser#arithmeticExpression.
-    def exitArithmeticExpression(self, ctx:MGprogrammingParser.ArithmeticExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by MGprogrammingParser#comment.
-    def enterComment(self, ctx:MGprogrammingParser.CommentContext):
-        pass
-
-    # Exit a parse tree produced by MGprogrammingParser#comment.
-    def exitComment(self, ctx:MGprogrammingParser.CommentContext):
         pass
 
 
