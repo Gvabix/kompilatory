@@ -328,6 +328,9 @@ mon ehleh_davtalt
 duusgah_davtalt
 
 ```
+Przykład- GUI
+![image](https://github.com/Gvabix/kompilatory/assets/115698237/aed1b13c-57b9-4c23-9ad4-d39178b39630)
+
 Przykład- parse tree
 
 ![image](https://github.com/Gvabix/kompilatory/assets/115698237/803616a6-e052-432f-8a3c-95874466b1f1)
